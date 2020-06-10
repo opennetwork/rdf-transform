@@ -1,0 +1,33 @@
+{
+  "name": "@opennetwork/rdf-transform",
+  "version": "1.0.0",
+  "main": "./esnext/index.js",
+  "types": "./esnext/index.d.ts",
+  "exports": {
+    ".": "./esnext/index.js"
+  },
+  "license": "MIT",
+  "private": true,
+  "author": "Fabian Cook <hello@fabiancook.dev>",
+  "type": "module",
+  "devDependencies": {
+    "@opennetwork/rdf-data-model": "^5.2.7",
+    "@opennetwork/rdf-dataset": "^8.2.1",
+    "@opennetwork/rdf-namespace-json": "^1.0.3",
+    "@opennetwork/rdf-namespace-mime": "^1.0.4",
+    "filehound": "^1.17.4",
+    "iterable": "^5.7.0",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "@opennetwork/rdf-data-model": "*",
+    "@opennetwork/rdf-dataset": "*",
+    "iterable": "*",
+    "@opennetwork/rdf-namespace-json": "*",
+    "@opennetwork/rdf-namespace-mime": "*"
+  },
+  "scripts": {
+    "build": "tsc && node scripts/post-build.js"
+  },
+  "dependencies": {}
+}
