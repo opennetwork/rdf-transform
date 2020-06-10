@@ -1,4 +1,5 @@
 import {
+    BlankNode,
     DefaultDataFactory, isLiteral, isLiteralLike, isNamedNodeLike,
     isQuad, isQuadGraph,
     isQuadLike, isQuadPredicate, isQuadSubject, Literal, LiteralLike, NamedNode,
@@ -8,6 +9,7 @@ import {
 import { isAsyncIterable, isIterable, isPromise } from "iterable"
 import { encode } from "@opennetwork/rdf-namespace-json"
 import * as ns from "./namespace"
+import {is} from "./namespace";
 
 export * from "./namespace"
 
@@ -44,7 +46,8 @@ export type TransformableSource =
     | unknown
 
 export async function *transform<LiteralType = unknown, BinaryType = unknown>(source: TransformableSource, options: TransformOptions<BinaryType, LiteralType>): AsyncIterable<Quad> {
-    let profileQuad: Quad | undefined = undefined
+    let profileQuad: Quad | undefined = undefined,
+        knownAsThing: boolean = false
 
     const literalQuadSubject = DefaultDataFactory.fromTerm(options.literalQuad.subject)
     const literalQuadPredicate = options.literalQuad.predicate ? DefaultDataFactory.fromTerm(options.literalQuad.predicate) : ns.contains
@@ -64,7 +67,9 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         yield* profile(ns.typeQuad)
         return yield source
     } else if (isQuadLike(source)) {
+        // It is a quad & quad like, as it will be quad when returned
         yield* profile(ns.typeQuadLike)
+        yield* profile(ns.typeQuad)
         return yield DefaultDataFactory.fromQuad(source)
     }
 
@@ -85,168 +90,151 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
             return
         }
         return yield* transform(result, options)
-    } else if (isAsyncIterable(source)) {
-        yield* profile(ns.typeAsyncIterable)
-        let definedSelf = false
-        const selfBlankNode = DefaultDataFactory.blankNode()
-        for await (const child of source) {
-            for await (const quad of transform(child, {
-                ...options,
-                literalQuad: {
-                    ...options.literalQuad,
-                    subject: selfBlankNode
-                }
-            })) {
-                if (!definedSelf) {
-                    yield new Quad(
-                        literalQuadSubject,
-                        literalQuadPredicate,
-                        selfBlankNode,
-                        literalQuadGraph
-                    )
-                    definedSelf = true
-                }
-                yield quad
-            }
-        }
-        return
-    } else if (isIterable(source)) {
-        yield* profile(ns.typeIterable)
-        let definedSelf = false
-        const selfBlankNode = DefaultDataFactory.blankNode()
-        for (const child of source) {
-            for await (const quad of transform(child, {
-                ...options,
-                literalQuad: {
-                    ...options.literalQuad,
-                    subject: selfBlankNode
-                }
-            })) {
-                if (!definedSelf) {
-                    yield new Quad(
-                        literalQuadSubject,
-                        literalQuadPredicate,
-                        selfBlankNode,
-                        literalQuadGraph
-                    )
-                    definedSelf = true
-                }
-                yield quad
-            }
-        }
-        return
     } else if (typeof source === "function") {
-        yield* profile(ns.typeFunction)
-        return yield *transform(source(), options)
+        return yield* thing(ns.typeFunction, async function *(knownAs, options) {
+            return yield* transform(source(), options)
+        })
     } else if (isPromise(source)) {
-        yield* profile(ns.typePromise)
-        return yield* transform(await source, options)
+        return yield* thing(ns.typePromise, async function *(knownAs, options) {
+            return yield* transform(await source, options)
+        })
     } else if (typeof source === "string") {
-        yield* profile(ns.typeString)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            DefaultDataFactory.literal(source, DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#string")),
-            literalQuadGraph
-        )
-    } else if (typeof source === "number") {
-        yield* profile(ns.typeNumber)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            // Double because xsd defines double as 64 bit float, which is what js uses _double-precision 64-bit binary format IEEE 754 _
-            DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#double")),
-            literalQuadGraph
-        )
-    } else if (typeof source === "bigint") {
-        /**
-         * xsd:positiveInteger	Integer numbers >0
-         * xsd:nonNegativeInteger	Integer numbers ≥0
-         * xsd:negativeInteger	Integer numbers <0
-         * xsd:nonPositiveInteger	Integer numbers ≤0
-         */
-        const type = source >= 0n ? "nonNegativeInteger" : "nonPositiveInteger"
-        yield* profile(ns.typeBigint)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode(`http://www.w3.org/2001/XMLSchema#${type}`)),
-            literalQuadGraph
-        )
-    } else if (typeof source === "boolean") {
-        yield* profile(ns.typeBoolean)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#boolean")),
-            literalQuadGraph
-        )
-    } else if (source instanceof Date) {
-        yield* profile(ns.typeDate)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            // We drop the knowledge of the originating timezone here... this may be a problem for a small amount
-            // of users, in their case, they're able to provide a literal directly
-            DefaultDataFactory.literal(source.toISOString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#dateTimeStamp")),
-            literalQuadGraph
-        )
-    } else if (options.isBinaryType && options.isBinaryType(source)) {
-        yield* profile(ns.typeBinary)
-        const hex = options.getHex && await options.getHex(source)
-        if (hex) {
-            yield* profile(ns.typeHex)
-        }
-        const base64 = !hex && options.getBase64 && await options.getBase64(source)
-        if (hex) {
-            yield* profile(ns.typeBase64)
-        }
-        const string = hex || base64
-        if (string) {
-            return yield DefaultDataFactory.quad(
-                literalQuadSubject,
+        return yield* thing(ns.typeString, async function *(knownAs) {
+            yield DefaultDataFactory.quad(
+                knownAs,
                 literalQuadPredicate,
-                DefaultDataFactory.literal(string, DefaultDataFactory.namedNode(`http://www.w3.org/2001/XMLSchema#${hex ? "hexBinary" : "base64Binary"}`)),
+                DefaultDataFactory.literal(source, DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#string")),
                 literalQuadGraph
             )
-        } else {
-            throw new Error("isBinaryType returned true but both getHex and getBase64 returned undefined sources")
-        }
-    } else if (isLiteral(source)) {
-        yield* profile(ns.typeLiteral)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            source,
-            literalQuadGraph
-        )
-    } else if (options.isLiteralType && options.isLiteralType(source) && options.getLiteral) {
-        yield* profile(ns.typeLiteral)
-        return yield* transform(await options.getLiteral(source), options)
-    } else if (isLiteralLike(source) && isNamedNodeLike(source.datatype)) {
-        yield* profile(ns.typeLiteralLike)
-        return yield DefaultDataFactory.quad(
-            literalQuadSubject,
-            literalQuadPredicate,
-            new Literal(
-                source.value,
-                source.language,
-                new NamedNode(
-                    source.datatype.value
+        })
+    } else if (typeof source === "number") {
+        return yield* thing(ns.typeNumber, async function *(knownAs) {
+            yield DefaultDataFactory.quad(
+                literalQuadSubject,
+                literalQuadPredicate,
+                // Double because xsd defines double as 64 bit float, which is what js uses _double-precision 64-bit binary format IEEE 754 _
+                DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#double")),
+                literalQuadGraph
+            )
+        })
+    } else if (typeof source === "bigint") {
+        return yield* thing(ns.typeBigint, async function *(knownAs) {
+            /**
+             * xsd:positiveInteger	Integer numbers >0
+             * xsd:nonNegativeInteger	Integer numbers ≥0
+             * xsd:negativeInteger	Integer numbers <0
+             * xsd:nonPositiveInteger	Integer numbers ≤0
+             */
+            const type = source >= 0n ? "nonNegativeInteger" : "nonPositiveInteger"
+            yield* profile(ns.typeBigint)
+            return yield DefaultDataFactory.quad(
+                knownAs,
+                literalQuadPredicate,
+                DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode(`http://www.w3.org/2001/XMLSchema#${type}`)),
+                literalQuadGraph
+            )
+        })
+    } else if (typeof source === "boolean") {
+        return yield* thing(ns.typeBoolean, async function *(knownAs) {
+            yield DefaultDataFactory.quad(
+                knownAs,
+                literalQuadPredicate,
+                DefaultDataFactory.literal(source.toString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#boolean")),
+                literalQuadGraph
+            )
+        })
+    } else if (source instanceof Date) {
+        return yield* thing(ns.typeDate, async function *(knownAs) {
+            yield DefaultDataFactory.quad(
+                knownAs,
+                literalQuadPredicate,
+                // We drop the knowledge of the originating timezone here... this may be a problem for a small amount
+                // of users, in their case, they're able to provide a literal directly
+                DefaultDataFactory.literal(source.toISOString(), DefaultDataFactory.namedNode("http://www.w3.org/2001/XMLSchema#dateTimeStamp")),
+                literalQuadGraph
+            )
+        })
+    } else if (options.isBinaryType && options.isBinaryType(source)) {
+        return yield* thing(ns.typeBinary, async function *(knownAs) {
+            const hex = options.getHex && await options.getHex(source)
+            const base64 = !hex && options.getBase64 && await options.getBase64(source)
+            if (hex) {
+                yield* profile(ns.typeHex)
+            }
+            if (hex) {
+                yield* profile(ns.typeBase64)
+            }
+            const string = hex || base64
+            if (string) {
+                return yield DefaultDataFactory.quad(
+                    knownAs,
+                    literalQuadPredicate,
+                    DefaultDataFactory.literal(string, DefaultDataFactory.namedNode(`http://www.w3.org/2001/XMLSchema#${hex ? "hexBinary" : "base64Binary"}`)),
+                    literalQuadGraph
                 )
-            ),
-            literalQuadGraph
-        )
+            } else {
+                throw new Error("isBinaryType returned true but both getHex and getBase64 returned undefined sources")
+            }
+        })
+
+    } else if (isLiteral(source)) {
+        return yield* thing(ns.typeLiteral, async function *(knownAs) {
+            yield DefaultDataFactory.quad(
+                knownAs,
+                literalQuadPredicate,
+                source,
+                literalQuadGraph
+            )
+        })
+    } else if (options.isLiteralType && options.isLiteralType(source) && options.getLiteral) {
+        return yield* thing(ns.typeLiteral, async function *(knownAs) {
+            return yield* transform(await options.getLiteral(source), options)
+        })
+    } else if (isLiteralLike(source) && isNamedNodeLike(source.datatype)) {
+        return yield* thing(ns.typeLiteralLike, async function *(knownAs) {
+            if (!isNamedNodeLike(source.datatype)) {
+                throw new Error("We checked twice!")
+            }
+            return yield DefaultDataFactory.quad(
+                knownAs,
+                literalQuadPredicate,
+                new Literal(
+                    source.value,
+                    source.language,
+                    new NamedNode(
+                        source.datatype.value
+                    )
+                ),
+                literalQuadGraph
+            )
+        })
     } else if (isLiteralLike(source)) {
         throw new Error("isLiteralLike should pick up on datatype being required as a NamedNode as well")
-    } else {
-        yield* profile(ns.typeJSON)
-        return yield encode(
-            literalQuadSubject,
-            literalQuadPredicate,
-            source,
-            literalQuadGraph
-        )
+    } else if (isIterable(source)) {
+        return yield* thing(ns.typeIterable, async function *(knownAs, options) {
+            for (const child of source) {
+                for await (const quad of transform(child, options)) {
+                    yield quad
+                }
+            }
+        })
+    } else if (isAsyncIterable(source)) {
+        return yield* thing(ns.typeAsyncIterable, async function *(knownAs, options) {
+            for await (const child of source) {
+                for await (const quad of transform(child, options)) {
+                    yield quad
+                }
+            }
+        })
+    } else  {
+        return yield* thing(ns.typeJSON, async function *(knownAs) {
+            return yield encode(
+                knownAs,
+                literalQuadPredicate,
+                source,
+                literalQuadGraph
+            )
+        })
     }
 
     function isUnknown(source: unknown): boolean {
@@ -260,20 +248,41 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         )
     }
 
-    async function *profile(type: NamedNode) {
+    async function *thing<Thing>(thingType: NamedNode | BlankNode, fn: (knownAs: NamedNode | BlankNode, options: TransformOptions) => AsyncGenerator<Quad>) {
+        const blankNode = DefaultDataFactory.blankNode()
+        yield new Quad(
+            literalQuadSubject,
+            ns.is,
+            blankNode,
+            literalQuadGraph
+        )
+        yield* profile(thingType, blankNode)
+        yield* fn(blankNode, {
+            ...options,
+            literalQuad: {
+                ...options.literalQuad,
+                subject: blankNode
+            }
+        })
+    }
+
+    async function *profile(type: NamedNode | BlankNode, knownAs?: NamedNode | BlankNode) {
         if (!options.profileQuad) {
             return
         }
+        if (!knownAs && !isQuadSubject(literalQuadSubject)) {
+            throw new Error("Invalid subject for literal quad")
+        }
         if (!profileQuad) {
             profileQuad = DefaultDataFactory.quad(
-                literalQuadSubject,
+                knownAs || literalQuadSubject,
                 typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.predicate || ns.type),
                 type,
                 typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.graph || literalQuadGraph),
             )
         }
         yield new Quad(
-            profileQuad.subject,
+            knownAs || literalQuadSubject,
             profileQuad.predicate,
             type,
             profileQuad.graph

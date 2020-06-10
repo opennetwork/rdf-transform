@@ -1,0 +1,844 @@
+[
+  {
+    "subject": {
+      "termType": "NamedNode",
+      "value": "https://example.com"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/function"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/async-iterable"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-5748448d-ef97-4b68-a21a-5cbadfb1f2de"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-5748448d-ef97-4b68-a21a-5cbadfb1f2de"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/number"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "1",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#double"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/string"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/date"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "2020-06-11T00:52:04.694Z",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/json"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "{\"a\":1}",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "https://www.iana.org/assignments/media-types/application/json"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/iterable"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-f3dc1088-f617-4b06-b171-00d6c4d554ba"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-f3dc1088-f617-4b06-b171-00d6c4d554ba"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/number"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "1",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#double"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "1",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "-1",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#nonPositiveInteger"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "0",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/bigint"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "0",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/function"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/iterable"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/string"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "Hello",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  }
+]

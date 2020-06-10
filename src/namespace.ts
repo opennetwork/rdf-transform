@@ -1,6 +1,7 @@
 import {DefaultDataFactory} from "@opennetwork/rdf-data-model";
 
 export const contains = DefaultDataFactory.namedNode("https://types.open-network.dev/aware-consumer/contains")
+export const is = DefaultDataFactory.namedNode("https://types.open-network.dev/aware-consumer/is")
 export const type = DefaultDataFactory.namedNode("https://types.open-network.dev/aware-consumer/type")
 export const typeQuad = DefaultDataFactory.namedNode("https://types.open-network.dev/aware-consumer/type/quad")
 export const typeQuadLike = DefaultDataFactory.namedNode("https://types.open-network.dev/aware-consumer/type/quad-like")

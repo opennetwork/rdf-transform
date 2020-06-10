@@ -1,7 +1,6 @@
-import { consume } from "../esnext/index.js";
+import { transform } from "../esnext/index.js";
 import { Dataset } from "@opennetwork/rdf-dataset"
 import {DefaultDataFactory} from "@opennetwork/rdf-data-model";
-import htm from "htm/preact/index.js"
 
 async function *thing() {
   yield 1
@@ -15,14 +14,16 @@ async function *thing() {
   yield -1n
   yield -0n
   yield 0n
-  yield htm.html`<${thing} href="/">Hello</>`
+  yield function *() {
+    yield "Hello"
+  }
 }
 
 async function run() {
 
   const dataset = new Dataset()
   const graph = DefaultDataFactory.blankNode(".")
-  const source = consume(thing(), {
+  const source = transform(thing, {
     literalQuad: {
       subject: {
         termType: "NamedNode",
