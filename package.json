@@ -7,7 +7,7 @@
     ".": "./esnext/index.js"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "author": "Fabian Cook <hello@fabiancook.dev>",
   "type": "module",
   "devDependencies": {
