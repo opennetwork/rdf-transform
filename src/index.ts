@@ -6,7 +6,7 @@ import {
     QuadSubjectLike
 } from "@opennetwork/rdf-data-model"
 import { isAsyncIterable, isIterable, isPromise } from "iterable"
-import { encode } from "@opennetwork/rdf-json"
+import { encode } from "@opennetwork/rdf-namespace-json"
 import * as ns from "./namespace"
 
 export * from "./namespace"
