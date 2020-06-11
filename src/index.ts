@@ -16,11 +16,12 @@ export interface ThingFn {
     (knownAs: NamedNode | BlankNode, options: TransformOptions): AsyncGenerator<Quad>
 }
 
-export interface TransformFn<LiteralType = unknown, BinaryType = unknown> {
-    (source: TransformableSource, options: TransformOptions<LiteralType, BinaryType>): void | AsyncGenerator<Quad>
+export interface TransformFn<LiteralType = unknown, BinaryType = unknown, ContextType= unknown> {
+    (source: TransformableSource, options: TransformOptions<LiteralType, BinaryType, ContextType>): void | AsyncGenerator<Quad>
 }
 
-export interface TransformOptions<LiteralType = unknown, BinaryType = unknown> {
+export interface TransformOptions<LiteralType = unknown, BinaryType = unknown, ContextType = unknown> {
+    context?: ContextType
     literalQuad: {
         subject: QuadSubjectLike
         predicate?: QuadPredicateLike
@@ -44,7 +45,7 @@ export interface TransformOptions<LiteralType = unknown, BinaryType = unknown> {
 export type TransformableAsyncIterableSource = AsyncIterable<TransformableSource>
 export type TransformableIterableSource = Iterable<TransformableSource>
 export type TransformablePromiseSource = Promise<TransformableSource>
-export type TransformableFunctionSource = () => TransformableSource
+export type TransformableFunctionSource = ThingFn | ((knownAs: NamedNode | BlankNode, options: TransformOptions) => TransformableSource)
 export type TransformableSource =
     | TransformableAsyncIterableSource
     | TransformableIterableSource
@@ -53,7 +54,7 @@ export type TransformableSource =
     // Above is more documenting what we _expect_ but in the end we do not need to know the type of the source
     | unknown
 
-export async function *transform<LiteralType = unknown, BinaryType = unknown>(source: TransformableSource, options: TransformOptions<BinaryType, LiteralType>): AsyncIterable<Quad> {
+export async function *transform<LiteralType = unknown, BinaryType = unknown, ContextType = unknown>(source: TransformableSource, options: TransformOptions<BinaryType, LiteralType, ContextType>): AsyncIterable<Quad> {
     const literalQuadSubject = DefaultDataFactory.fromTerm(options.literalQuad.subject)
     const literalQuadPredicate = options.literalQuad.predicate ? DefaultDataFactory.fromTerm(options.literalQuad.predicate) : ns.contains
     const literalQuadGraph = options.literalQuad.graph ? DefaultDataFactory.fromTerm(options.literalQuad.graph) : DefaultDataFactory.defaultGraph()
@@ -134,7 +135,7 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         return yield* transform(result, options)
     } else if (typeof source === "function") {
         return yield* thing(ns.typeFunction, async function *(knownAs, options) {
-            return yield* transform(source(), options)
+            return yield* transform(source(knownAs, options), options)
         })
     } else if (isPromise(source)) {
         return yield* thing(ns.typePromise, async function *(knownAs, options) {
@@ -300,9 +301,9 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         )
         yield* profile(thingType, blankNode)
         yield* fn(blankNode, {
-            ...options,
+            ...completeOptions,
             literalQuad: {
-                ...options.literalQuad,
+                ...completeOptions.literalQuad,
                 subject: blankNode
             }
         })

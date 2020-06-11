@@ -21,6 +21,12 @@ async function *thing() {
     yield "Hello"
   }
   yield React.createElement("a", { href: "https://example.com", key: 1 })
+
+  function Component() {
+    return React.createElement("p", { }, "Hello")
+  }
+
+  yield React.createElement(Component)
 }
 
 const reactElement = DefaultDataFactory.namedNode("https://reactjs.org/element")
@@ -32,6 +38,7 @@ async function run() {
   const dataset = new Dataset()
   const graph = DefaultDataFactory.blankNode(".")
   const source = transform(thing, {
+    context: dataset,
     literalQuad: {
       subject: {
         termType: "NamedNode",
@@ -55,7 +62,7 @@ async function run() {
           options.literalQuad.graph
         )
         // This can be later retrieved and rendered as part of this node
-        elements.set(node, source)
+        // elements.set(node, source)
 
         const htmlString = await ReactDOM.renderToStaticMarkup(source)
 
@@ -72,7 +79,7 @@ async function run() {
       }
     ]
   })
-  await dataset.import(source)
+  await dataset.import(source, true)
 
   console.log(JSON.stringify(dataset.toArray(), undefined, "  "))
 
