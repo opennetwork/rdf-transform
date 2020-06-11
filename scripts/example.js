@@ -1,6 +1,9 @@
-import { transform } from "../esnext/index.js";
+import {contains, is, transform} from "../esnext/index.js";
 import { Dataset } from "@opennetwork/rdf-dataset"
 import {DefaultDataFactory} from "@opennetwork/rdf-data-model";
+import React from "react"
+import ReactDOM from "react-dom/server.node.js"
+import mime from "@opennetwork/rdf-namespace-mime"
 
 async function *thing() {
   yield 1
@@ -17,9 +20,14 @@ async function *thing() {
   yield function *() {
     yield "Hello"
   }
+  yield React.createElement("a", { href: "https://example.com", key: 1 })
 }
 
+const reactElement = DefaultDataFactory.namedNode("https://reactjs.org/element")
+
 async function run() {
+
+  const elements = new WeakMap()
 
   const dataset = new Dataset()
   const graph = DefaultDataFactory.blankNode(".")
@@ -33,11 +41,41 @@ async function run() {
     },
     profileQuad: {
       graph: DefaultDataFactory.blankNode("profile")
-    }
+    },
+    transformations: [
+      async function *(source, options) {
+        if (!React.isValidElement(source)) {
+          return
+        }
+        const node = DefaultDataFactory.blankNode()
+        yield DefaultDataFactory.quad(
+          options.literalQuad.subject,
+          reactElement,
+          node,
+          options.literalQuad.graph
+        )
+        // This can be later retrieved and rendered as part of this node
+        elements.set(node, source)
+
+        const htmlString = await ReactDOM.renderToStaticMarkup(source)
+
+        yield DefaultDataFactory.quad(
+          node,
+          mime.html,
+          DefaultDataFactory.literal(
+            htmlString,
+            mime.html
+          ),
+          options.literalQuad.graph
+        )
+
+      }
+    ]
   })
   await dataset.import(source)
 
   console.log(JSON.stringify(dataset.toArray(), undefined, "  "))
+
 }
 
 run()

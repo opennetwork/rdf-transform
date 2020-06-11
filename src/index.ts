@@ -9,9 +9,16 @@ import {
 import { isAsyncIterable, isIterable, isPromise } from "iterable"
 import { encode } from "@opennetwork/rdf-namespace-json"
 import * as ns from "./namespace"
-import {is} from "./namespace";
 
 export * from "./namespace"
+
+export interface ThingFn {
+    (knownAs: NamedNode | BlankNode, options: TransformOptions): AsyncGenerator<Quad>
+}
+
+export interface TransformFn<LiteralType = unknown, BinaryType = unknown> {
+    (source: TransformableSource, options: TransformOptions<LiteralType, BinaryType>): void | AsyncGenerator<Quad>
+}
 
 export interface TransformOptions<LiteralType = unknown, BinaryType = unknown> {
     literalQuad: {
@@ -30,7 +37,8 @@ export interface TransformOptions<LiteralType = unknown, BinaryType = unknown> {
     getLiteral(source: LiteralType): LiteralLike | Promise<LiteralLike>
     isUnknown?(source: unknown): boolean
     onUnknown?(source: TransformableSource): TransformableSource
-    getQuad?(source: TransformableSource): void | Promise<void> | TransformableSource
+    getQuad?: TransformFn
+    transformations?: TransformFn[]
 }
 
 export type TransformableAsyncIterableSource = AsyncIterable<TransformableSource>
@@ -46,9 +54,6 @@ export type TransformableSource =
     | unknown
 
 export async function *transform<LiteralType = unknown, BinaryType = unknown>(source: TransformableSource, options: TransformOptions<BinaryType, LiteralType>): AsyncIterable<Quad> {
-    let profileQuad: Quad | undefined = undefined,
-        knownAsThing: boolean = false
-
     const literalQuadSubject = DefaultDataFactory.fromTerm(options.literalQuad.subject)
     const literalQuadPredicate = options.literalQuad.predicate ? DefaultDataFactory.fromTerm(options.literalQuad.predicate) : ns.contains
     const literalQuadGraph = options.literalQuad.graph ? DefaultDataFactory.fromTerm(options.literalQuad.graph) : DefaultDataFactory.defaultGraph()
@@ -63,6 +68,13 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         throw new Error("Invalid graph for literal quad")
     }
 
+    const profileQuad: Quad | undefined = options.profileQuad ? DefaultDataFactory.quad(
+        literalQuadSubject,
+        typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.predicate || ns.type),
+        ns.typeUnknown,
+        typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.graph || literalQuadGraph),
+    ) : undefined
+
     if (isQuad(source)) {
         yield* profile(ns.typeQuad)
         return yield source
@@ -73,10 +85,40 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         return yield DefaultDataFactory.fromQuad(source)
     }
 
+    const transformations: TransformFn[] = [
+        ...(options.transformations || [])
+    ]
+
     if (options.getQuad) {
-        const initialQuad = await options.getQuad(source)
-        if (!isUnknown(initialQuad)) {
-            yield* transform(initialQuad, options)
+        transformations.push(options.getQuad)
+    }
+
+    const completeOptions = {
+        ...options,
+        getQuad: undefined,
+        transformations,
+        literalQuad: {
+            subject: literalQuadSubject,
+            predicate: literalQuadPredicate,
+            graph: literalQuadGraph
+        },
+        profileQuad: profileQuad ? {
+            predicate: profileQuad.predicate,
+            graph: profileQuad.graph
+        } : undefined
+    }
+
+    for (const transformation of transformations) {
+        const result = transformation(source, completeOptions)
+        if (isAsyncIterable(result)) {
+            let anyThing = false
+            for await (const value of result) {
+                anyThing = true
+                yield value
+            }
+            if (anyThing) {
+                return
+            }
         }
     }
 
@@ -248,7 +290,7 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
         )
     }
 
-    async function *thing<Thing>(thingType: NamedNode | BlankNode, fn: (knownAs: NamedNode | BlankNode, options: TransformOptions) => AsyncGenerator<Quad>) {
+    async function *thing<Thing>(thingType: NamedNode | BlankNode, fn: ThingFn) {
         const blankNode = DefaultDataFactory.blankNode()
         yield new Quad(
             literalQuadSubject,
@@ -267,19 +309,8 @@ export async function *transform<LiteralType = unknown, BinaryType = unknown>(so
     }
 
     async function *profile(type: NamedNode | BlankNode, knownAs?: NamedNode | BlankNode) {
-        if (!options.profileQuad) {
-            return
-        }
-        if (!knownAs && !isQuadSubject(literalQuadSubject)) {
-            throw new Error("Invalid subject for literal quad")
-        }
         if (!profileQuad) {
-            profileQuad = DefaultDataFactory.quad(
-                knownAs || literalQuadSubject,
-                typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.predicate || ns.type),
-                type,
-                typeof options.profileQuad === "boolean" ? ns.type : (options.profileQuad.graph || literalQuadGraph),
-            )
+            return
         }
         yield new Quad(
             knownAs || literalQuadSubject,

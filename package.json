@@ -17,14 +17,16 @@
     "@opennetwork/rdf-namespace-mime": "^1.0.4",
     "filehound": "^1.17.4",
     "iterable": "^5.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "@opennetwork/rdf-data-model": "*",
     "@opennetwork/rdf-dataset": "*",
-    "iterable": "*",
     "@opennetwork/rdf-namespace-json": "*",
-    "@opennetwork/rdf-namespace-mime": "*"
+    "@opennetwork/rdf-namespace-mime": "*",
+    "iterable": "*"
   },
   "scripts": {
     "build": "tsc && node scripts/post-build.js"

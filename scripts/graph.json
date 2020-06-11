@@ -10,7 +10,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+      "value": "blank-f44d72e9-dfa6-4abd-b780-41dc4e2b3b4b"
     },
     "graph": {
       "termType": "BlankNode",
@@ -20,7 +20,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+      "value": "blank-f44d72e9-dfa6-4abd-b780-41dc4e2b3b4b"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -38,7 +38,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-51049996-0a65-4944-98f5-c506a42adfbd"
+      "value": "blank-f44d72e9-dfa6-4abd-b780-41dc4e2b3b4b"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -46,7 +46,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "graph": {
       "termType": "BlankNode",
@@ -56,7 +56,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -74,7 +74,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -82,7 +82,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-5748448d-ef97-4b68-a21a-5cbadfb1f2de"
+      "value": "blank-84416c34-1ec8-41d2-986a-39aea2b03b00"
     },
     "graph": {
       "termType": "BlankNode",
@@ -92,7 +92,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-5748448d-ef97-4b68-a21a-5cbadfb1f2de"
+      "value": "blank-84416c34-1ec8-41d2-986a-39aea2b03b00"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -110,7 +110,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -133,7 +133,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -141,7 +141,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+      "value": "blank-aee16875-eb56-4587-87b8-cb8a5ff7b460"
     },
     "graph": {
       "termType": "BlankNode",
@@ -151,7 +151,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+      "value": "blank-aee16875-eb56-4587-87b8-cb8a5ff7b460"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -169,7 +169,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-83ef9e93-175d-4452-9638-8dbffa32e818"
+      "value": "blank-aee16875-eb56-4587-87b8-cb8a5ff7b460"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -192,7 +192,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -200,7 +200,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+      "value": "blank-b1209817-8bc6-4ba3-a79c-7e58557925cf"
     },
     "graph": {
       "termType": "BlankNode",
@@ -210,7 +210,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+      "value": "blank-b1209817-8bc6-4ba3-a79c-7e58557925cf"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -228,7 +228,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-cfbf0230-fc9f-467e-91f8-816eb9099bb3"
+      "value": "blank-b1209817-8bc6-4ba3-a79c-7e58557925cf"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -236,7 +236,7 @@
     },
     "object": {
       "termType": "Literal",
-      "value": "2020-06-11T00:52:04.694Z",
+      "value": "2020-06-11T10:21:12.819Z",
       "language": "",
       "datatype": {
         "termType": "NamedNode",
@@ -251,7 +251,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -259,7 +259,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+      "value": "blank-77e94ec9-526b-4121-b15f-297cc1415891"
     },
     "graph": {
       "termType": "BlankNode",
@@ -269,7 +269,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+      "value": "blank-77e94ec9-526b-4121-b15f-297cc1415891"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -287,7 +287,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-dbf01477-1ee4-4cf6-bbcd-690ee74e364b"
+      "value": "blank-77e94ec9-526b-4121-b15f-297cc1415891"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -310,7 +310,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -318,7 +318,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+      "value": "blank-2c06fdab-658f-4f9b-aff3-d48a6265aea1"
     },
     "graph": {
       "termType": "BlankNode",
@@ -328,7 +328,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+      "value": "blank-2c06fdab-658f-4f9b-aff3-d48a6265aea1"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -346,7 +346,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+      "value": "blank-2c06fdab-658f-4f9b-aff3-d48a6265aea1"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -354,7 +354,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-f3dc1088-f617-4b06-b171-00d6c4d554ba"
+      "value": "blank-ad8c8d58-5e0b-4232-9f57-d7f50674d236"
     },
     "graph": {
       "termType": "BlankNode",
@@ -364,7 +364,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-f3dc1088-f617-4b06-b171-00d6c4d554ba"
+      "value": "blank-ad8c8d58-5e0b-4232-9f57-d7f50674d236"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -382,7 +382,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-364066a8-031e-43ae-9212-f6a85c96d5b2"
+      "value": "blank-2c06fdab-658f-4f9b-aff3-d48a6265aea1"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -405,7 +405,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -413,7 +413,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+      "value": "blank-5919bc73-b294-49c5-98db-a71402994e26"
     },
     "graph": {
       "termType": "BlankNode",
@@ -423,7 +423,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+      "value": "blank-5919bc73-b294-49c5-98db-a71402994e26"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -441,7 +441,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -459,7 +459,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-7acffd40-94c8-4d59-9072-497bbb488c77"
+      "value": "blank-5919bc73-b294-49c5-98db-a71402994e26"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -482,7 +482,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -490,7 +490,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+      "value": "blank-fb407030-e7be-4a65-9a8a-1ecb60116955"
     },
     "graph": {
       "termType": "BlankNode",
@@ -500,7 +500,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+      "value": "blank-fb407030-e7be-4a65-9a8a-1ecb60116955"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -518,7 +518,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -536,7 +536,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-67f549e9-4f62-4088-8e27-1086701940b0"
+      "value": "blank-fb407030-e7be-4a65-9a8a-1ecb60116955"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -559,7 +559,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -567,7 +567,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+      "value": "blank-bd51e88e-6dfd-4264-8ad6-1aebea5738fb"
     },
     "graph": {
       "termType": "BlankNode",
@@ -577,7 +577,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+      "value": "blank-bd51e88e-6dfd-4264-8ad6-1aebea5738fb"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -595,7 +595,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -613,7 +613,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-b3c5d732-2bb8-4dc3-a137-1846c8738a6e"
+      "value": "blank-bd51e88e-6dfd-4264-8ad6-1aebea5738fb"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -636,7 +636,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -644,7 +644,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+      "value": "blank-2f537d96-7f13-459f-b708-b9e3f54efcd6"
     },
     "graph": {
       "termType": "BlankNode",
@@ -654,7 +654,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+      "value": "blank-2f537d96-7f13-459f-b708-b9e3f54efcd6"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -672,7 +672,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -690,7 +690,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-b5e91b8f-810e-4c20-a876-0451df7782fd"
+      "value": "blank-2f537d96-7f13-459f-b708-b9e3f54efcd6"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -713,7 +713,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-4dcc6d5b-a362-497e-96ac-d238e835b917"
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -721,7 +721,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+      "value": "blank-09cbdbe4-c9ec-4f04-b7d1-6db4e98610e4"
     },
     "graph": {
       "termType": "BlankNode",
@@ -731,7 +731,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+      "value": "blank-09cbdbe4-c9ec-4f04-b7d1-6db4e98610e4"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -749,7 +749,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-52283cd4-3aed-4d0b-b743-00ae23e97b36"
+      "value": "blank-09cbdbe4-c9ec-4f04-b7d1-6db4e98610e4"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -757,7 +757,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+      "value": "blank-316e5792-59a4-41c8-8a8e-d5728c8e558e"
     },
     "graph": {
       "termType": "BlankNode",
@@ -767,7 +767,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+      "value": "blank-316e5792-59a4-41c8-8a8e-d5728c8e558e"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -785,7 +785,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-dd59e9b3-e395-4330-859f-d56ea3b63b80"
+      "value": "blank-316e5792-59a4-41c8-8a8e-d5728c8e558e"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -793,7 +793,7 @@
     },
     "object": {
       "termType": "BlankNode",
-      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+      "value": "blank-f519f97b-eb87-48bd-a91b-a6883e9b3dd2"
     },
     "graph": {
       "termType": "BlankNode",
@@ -803,7 +803,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+      "value": "blank-f519f97b-eb87-48bd-a91b-a6883e9b3dd2"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -821,7 +821,7 @@
   {
     "subject": {
       "termType": "BlankNode",
-      "value": "blank-6b510eae-7bb2-4271-8a10-a479e7d14a6d"
+      "value": "blank-f519f97b-eb87-48bd-a91b-a6883e9b3dd2"
     },
     "predicate": {
       "termType": "NamedNode",
@@ -834,6 +834,65 @@
       "datatype": {
         "termType": "NamedNode",
         "value": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-148e6e4b-7766-4f61-8b58-95d190a6e240"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/is"
+    },
+    "object": {
+      "termType": "BlankNode",
+      "value": "blank-60506b5a-7c90-4bf6-a7c2-47a2998222e8"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "."
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-60506b5a-7c90-4bf6-a7c2-47a2998222e8"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type"
+    },
+    "object": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/type/json"
+    },
+    "graph": {
+      "termType": "BlankNode",
+      "value": "profile"
+    }
+  },
+  {
+    "subject": {
+      "termType": "BlankNode",
+      "value": "blank-60506b5a-7c90-4bf6-a7c2-47a2998222e8"
+    },
+    "predicate": {
+      "termType": "NamedNode",
+      "value": "https://types.open-network.dev/aware-consumer/contains"
+    },
+    "object": {
+      "termType": "Literal",
+      "value": "{\"type\":\"a\",\"key\":\"1\",\"ref\":null,\"props\":{\"href\":\"https://example.com\"},\"_owner\":null,\"_store\":{}}",
+      "language": "",
+      "datatype": {
+        "termType": "NamedNode",
+        "value": "https://www.iana.org/assignments/media-types/application/json"
       }
     },
     "graph": {
